@@ -1,0 +1,311 @@
+.about-section {
+  position: relative;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.about-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 2.5rem;
+}
+
+/* Dossier Card general */
+.dossier-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.25s ease;
+}
+
+.dossier-card:hover {
+  border-color: rgba(223, 255, 0, 0.25);
+}
+
+.dossier-card-header {
+  padding: 1.15rem 1.5rem;
+  background: #0B0D14;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.terminal-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  background: var(--accent-yellow-dim);
+  color: var(--accent-yellow);
+  border-radius: 3px;
+  border: 1px solid rgba(223, 255, 0, 0.25);
+}
+
+.terminal-badge.badge-green {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent-green);
+  border-color: rgba(0, 255, 136, 0.25);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ── Methodology Steps ─────────────────────────────── */
+.methodology-steps {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.methodology-step-item {
+  display: flex;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.step-number-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-yellow);
+  background: rgba(223, 255, 0, 0.08);
+  border: 1px solid rgba(223, 255, 0, 0.3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-connector-line {
+  flex: 1;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 0.5rem 0;
+}
+
+.step-details-col {
+  flex: 1;
+}
+
+.step-phase-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.step-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+
+.step-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.step-tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+}
+
+/* ── Tools / Arsenal ───────────────────────────────── */
+.tools-categories-list {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tool-category-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.tool-category-title {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tool-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tool-chip {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.tool-chip:hover {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+  background: var(--accent-yellow-dim);
+}
+
+/* ── Certifications & Credentials ─────────────────── */
+.cert-card-full {
+  width: 100%;
+}
+
+.certifications-grid {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+
+.cert-item-box {
+  background: rgba(8, 9, 13, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+}
+
+.cert-item-box:hover {
+  border-color: rgba(223, 255, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cert-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-id-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.cert-status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+}
+
+.cert-status-badge.verified {
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+}
+
+.cert-status-badge.in-progress {
+  background: rgba(223, 255, 0, 0.1);
+  color: var(--accent-yellow);
+  border: 1px solid rgba(223, 255, 0, 0.25);
+}
+
+.cert-name {
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.cert-issuer-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+}
+
+.issuer-label {
+  color: var(--text-muted);
+}
+
+.issuer-name {
+  color: var(--accent-yellow);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.cert-skills-summary {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* ── Responsiveness ────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dossier-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .methodology-step-item {
+    gap: 0.85rem;
+  }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,212 @@
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: rgba(8, 9, 13, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.navbar-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Brand styling */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.terminal-prompt-sym {
+  color: var(--accent-yellow);
+}
+
+.brand-user {
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.brand-path {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.cursor-pulse {
+  color: var(--accent-yellow);
+  animation: cursorBlink 1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* System status indicator */
+.nav-system-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green);
+  animation: statusPulse 2s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.6; }
+}
+
+.status-label {
+  color: var(--text-muted);
+}
+
+.status-val {
+  color: var(--accent-green);
+}
+
+/* Desktop navigation links */
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  padding: 0.35rem 0;
+  position: relative;
+}
+
+.item-prefix {
+  color: var(--accent-yellow);
+  opacity: 0.7;
+  margin-right: 0.2rem;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.nav-item-cta {
+  background: var(--accent-yellow);
+  color: #08090D !important;
+  padding: 0.4rem 0.95rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-yellow);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.nav-item-cta:hover {
+  background: transparent;
+  color: var(--accent-yellow) !important;
+  box-shadow: 0 0 16px var(--accent-yellow-glow);
+}
+
+/* Hamburger button */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 28px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hamburger-btn .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.hamburger-btn:hover {
+  border-color: var(--accent-yellow);
+}
+
+.hamburger-btn.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile drawer */
+.mobile-nav-drawer {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.25rem 1.5rem;
+  gap: 1rem;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.mobile-nav-link:hover {
+  color: var(--text-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .nav-system-status {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .nav-links-desktop {
+    display: none;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
+}

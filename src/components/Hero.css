@@ -1,0 +1,332 @@
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  padding: clamp(3rem, 6vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+/* ── Profile Image Card (Clean, Sharp, High-Res) ──── */
+.profile-card-wrapper {
+  position: relative;
+  padding: 10px;
+  background: rgba(14, 16, 23, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(223, 255, 0, 0.04);
+}
+
+/* Tactical HUD Corner Marks */
+.profile-hud-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent-yellow);
+  pointer-events: none;
+  z-index: 2;
+}
+.corner-tl { top: -1px; left: -1px; border-top: 2px solid var(--accent-yellow); border-left: 2px solid var(--accent-yellow); }
+.corner-tr { top: -1px; right: -1px; border-top: 2px solid var(--accent-yellow); border-right: 2px solid var(--accent-yellow); }
+.corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent-yellow); border-left: 2px solid var(--accent-yellow); }
+.corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent-yellow); border-right: 2px solid var(--accent-yellow); }
+
+.profile-card-inner {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.profile-image-frame {
+  width: 100%;
+  aspect-ratio: 4 / 4.2;
+  overflow: hidden;
+  background-color: #0E1017;
+  position: relative;
+}
+
+/* 100% clean, crisp original photo — NO blur, NO grayscale, NO distorting filters */
+.profile-photo-clean {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-card-wrapper:hover .profile-photo-clean {
+  transform: scale(1.02);
+}
+
+.profile-card-footer {
+  padding: 1rem 1.15rem;
+  background: #0E1017;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.profile-id-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name-tag {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+
+.profile-role-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-yellow);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.profile-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid var(--border-subtle);
+}
+
+.status-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+}
+
+/* ── Hero Terminal & Copy Column ───────────────────── */
+.hero-terminal-window {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+.terminal-topbar {
+  background: #0B0D14;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  user-select: none;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.t-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-close { background: #FF5F56; }
+.dot-min   { background: #FFBD2E; }
+.dot-max   { background: #27C93F; }
+
+.terminal-tab-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.terminal-security-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  background: var(--accent-yellow-dim);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(223, 255, 0, 0.25);
+}
+
+.terminal-body-content {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.terminal-cmd-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.terminal-ps1 {
+  color: var(--accent-yellow);
+  font-weight: 700;
+}
+
+.terminal-typed-cmd {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Bio elements */
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-headline {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 1.1rem;
+}
+
+.hero-name-accent {
+  color: var(--accent-yellow);
+  text-shadow: 0 0 16px var(--accent-yellow-glow);
+}
+
+.hero-statement {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Terminal stdout animated box */
+.terminal-stdout-box {
+  background: rgba(8, 9, 13, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent-yellow);
+  padding: 0.9rem 1.15rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  margin-bottom: 1.75rem;
+}
+
+.stdout-text {
+  color: #A3B8CC;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  margin: 0;
+  font-family: inherit;
+}
+
+.cursor-block {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--accent-yellow);
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: cursorBlink 0.9s step-end infinite;
+}
+
+/* Feature tags */
+.hero-skills-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  border-color: rgba(223, 255, 0, 0.3);
+  color: var(--text-primary);
+}
+
+/* Action buttons */
+.hero-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+/* ── Responsiveness ────────────────────────────────── */
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .profile-card-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .terminal-topbar {
+    padding: 0.6rem 1rem;
+  }
+  
+  .terminal-tab-title {
+    font-size: 0.7rem;
+  }
+
+  .terminal-security-badge {
+    display: none;
+  }
+
+  .hero-actions-row {
+    flex-direction: column;
+  }
+
+  .hero-actions-row .btn-cyber-primary,
+  .hero-actions-row .btn-cyber-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
